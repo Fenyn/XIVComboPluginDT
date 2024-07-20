@@ -961,7 +961,6 @@ namespace XIVComboPlugin
             }
 
             bool useLivingMuseCombo = Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoLivingMuse);
-            bool useMogOfTheAgesCombo = Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoMogOfTheAges);
             if (useLivingMuseCombo)
             {
                 if (actionID == PCT.CreatureMotif)
@@ -969,19 +968,6 @@ namespace XIVComboPlugin
                     var PCTGauge = JobGauges.Get<PCTGauge>();
                     if (PCTGauge.CreatureMotifDrawn)
                         return iconHook.Original(self, PCT.LivingMuse);
-                    else if(useMogOfTheAgesCombo && (PCTGauge.MooglePortraitReady || PCTGauge.MadeenPortraitReady))
-                        return iconHook.Original(self, PCT.MogOfTheAges);
-                    return iconHook.Original(self, actionID);
-                }
-            }
-
-            if (useMogOfTheAgesCombo)
-            {
-                if (actionID == PCT.LivingMuse)
-                {
-                    var PCTGauge = JobGauges.Get<PCTGauge>();
-                    if (PCTGauge.MooglePortraitReady || PCTGauge.MadeenPortraitReady)
-                        return iconHook.Original(self, PCT.MogOfTheAges);
                     return iconHook.Original(self, actionID);
                 }
             }
