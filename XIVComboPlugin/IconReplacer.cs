@@ -940,7 +940,7 @@ namespace XIVComboPlugin
                 if (actionID == PCT.HolyWhite)
                 {
                     if (SearchBuffArray(PCT.Monochrome))
-                        return PCT.CometBlack;
+                        return iconHook.Original(self, PCT.CometBlack);
                     return iconHook.Original(self, actionID);
                 }
             }
@@ -996,7 +996,7 @@ namespace XIVComboPlugin
                     if (useSceneicMuseCombo && PCTGauge.LandscapeMotifDrawn)
                         return iconHook.Original(self, PCT.ScenicMuse);
                     else if (useStarPrismCombo && SearchBuffArray(PCT.StarStruck))
-                        return PCT.StarPrism;
+                        return iconHook.Original(self, PCT.StarPrism);
                     return iconHook.Original(self, actionID);
                 }
             }
