@@ -190,8 +190,8 @@ namespace XIVComboPlugin
         ReaperArcaneFeature = 1L << 30,
 
         //PICTOMANCER
-        [CustomComboInfo("Subtractive Pallet Combo", "Replace Fire combo with Blizzard combo when Subtractive Pallet is active.",42)]
-        PictoSubtractivePallet = 1L << 5,
+        [CustomComboInfo("Subtractive Palette Combo", "Replace Fire combo with Blizzard combo when Subtractive Pallet is active.",42)]
+        PictoSubtractivePalette = 1L << 5,
 
         [CustomComboInfo("Monochrome Combo", "Replace Holy in White with Comet in Black when Monochrome Tones is active.", 42)]
         PictoHolyWhiteCombo = 1L << 31,

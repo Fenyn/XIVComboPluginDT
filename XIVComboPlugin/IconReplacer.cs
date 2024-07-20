@@ -918,7 +918,7 @@ namespace XIVComboPlugin
             }
             
              //Pictomancer
-            if (Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoSubtractivePallet))
+            if (Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoSubtractivePalette))
             {
                 if (actionID == PCT.Fire1)
                 {
