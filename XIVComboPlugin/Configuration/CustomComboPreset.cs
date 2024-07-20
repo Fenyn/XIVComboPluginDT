@@ -190,17 +190,29 @@ namespace XIVComboPlugin
         ReaperArcaneFeature = 1L << 30,
 
         //PICTOMANCER
-        [CustomComboInfo("Red to Blue combo","Replace Fire combo with Blizzard combo when Subtractive Pallet is active.",42)]
-        PictoSubtractivePallet = 1L << 31,
+        [CustomComboInfo("Subtractive Pallet Combo", "Replace Fire combo with Blizzard combo when Subtractive Pallet is active.",42)]
+        PictoSubtractivePallet = 1L << 5,
 
-        [CustomComboInfo("Motifs and Muses", "Replace Motifs with their relevant Muses.", 42)]
-        PictoMotifMuseFeature = 1L << 34,
+        [CustomComboInfo("Monochrome Combo", "Replace Holy in White with Comet in Black when Monochrome Tones is active.", 42)]
+        PictoHolyWhiteCombo = 1L << 21,
 
-        [CustomComboInfo("Starry Sky to Star Prism", "Replace Starry Sky with Star Prism.", 42)]
-        PictoStarrySkyCombo = 1L << 38,
+        [CustomComboInfo("Weapon Motif to Steel Muse", "Replace Weapon Motif with Steel Muse when a Hammer is painted on the Weapon Canvas.", 42)]
+        PictoSteelMuse = 1L << 31,
 
-        [CustomComboInfo("Holy white to Comet Black", "Replace Holy in White with Comet in black when Monochrome Tones is active.", 42)]
-        PictoHolyWhiteCombo = 1L << 43,
+        [CustomComboInfo("Weapon Motif to Hammer Stamp", "Replace Weapon Motif with Hammer Stamp when Hammer Ready is active.", 42)]
+        PictoHammerStamp = 1L << 34,
+
+        [CustomComboInfo("Creature Motif to Living Muse", "Replace Creature Motif with Living Muse anything is painted on the Creature Canvas.", 42)]
+        PictoLivingMuse = 1L << 38,
+
+        [CustomComboInfo("Living Muse to Mog of the Ages", "Replace Living Muse with Mog of the Ages when Moogle Portrait or Madeen Portrait are active.\nIf Creature Motif to Living Muse is active, this will also change Creature Motif to Mog of the Ages when the portraits are active.", 42)]
+        PictoMogOfTheAges = 1L << 41,
+
+        [CustomComboInfo("Landscape Motif to Sceneic Muse", "Replace Landscape Motif with Sceneic Muse when a Starry Sky is painted on the Landscape Canvas.", 42)]
+        PictoSceneicMuse = 1L << 43,
+
+        [CustomComboInfo("Landscape Motif to Star Prism", "Replace Landscape Motif with Star Prism when Star Struck is active.", 42)]
+        PictoStarPrism = 1L << 44,
         
         //Viper
         [CustomComboInfo("Death Rattle Overdrive", "Replace Steel Fangs/Dread Fangs with Death Rattle when available", 41)]

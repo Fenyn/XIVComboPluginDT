@@ -941,44 +941,66 @@ namespace XIVComboPlugin
                 {
                     if (SearchBuffArray(PCT.Monochrome))
                         return PCT.CometBlack;
-                    return PCT.HolyWhite;
+                    return iconHook.Original(self, actionID);
                 }
             }
 
-            if (Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoMotifMuseFeature))
+            bool useSteelMuseCombo = Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoSteelMuse);
+            bool useHammerStampCombo = Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoHammerStamp);
+            if (useSteelMuseCombo || useHammerStampCombo)
+            {
+                if (actionID == PCT.WeaponMotif)
+                {
+                    var PCTGauge = JobGauges.Get<PCTGauge>();
+                    if (useSteelMuseCombo && PCTGauge.WeaponMotifDrawn)
+                        return iconHook.Original(self, PCT.SteelMuse);
+                    else if(useHammerStampCombo && SearchBuffArray(PCT.HammerReady) )
+                        return iconHook.Original(self, PCT.HammerStamp);
+                    return iconHook.Original(self, actionID);
+                }
+            }
+
+            bool useLivingMuseCombo = Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoLivingMuse);
+            bool useMogOfTheAgesCombo = Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoMogOfTheAges);
+            if (useLivingMuseCombo)
             {
                 if (actionID == PCT.CreatureMotif)
                 {
                     var PCTGauge = JobGauges.Get<PCTGauge>();
                     if (PCTGauge.CreatureMotifDrawn)
                         return iconHook.Original(self, PCT.LivingMuse);
-                    return iconHook.Original(self, actionID);
-                }
-
-                if (actionID == PCT.WeaponMotif)
-                {
-                    var PCTGauge = JobGauges.Get<PCTGauge>();
-                    if (PCTGauge.WeaponMotifDrawn)
-                        return iconHook.Original(self, PCT.SteelMuse);
-                    if(SearchBuffArray(PCT.HammerReady))
-                        return iconHook.Original(self, PCT.HammerStamp);
+                    else if(useMogOfTheAgesCombo && (PCTGauge.MooglePortraitReady || PCTGauge.MadeenPortraitReady))
+                        return iconHook.Original(self, PCT.MogOfTheAges);
                     return iconHook.Original(self, actionID);
                 }
             }
 
-            if (Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoStarrySkyCombo))
+            if (useMogOfTheAgesCombo)
+            {
+                if (actionID == PCT.LivingMuse)
+                {
+                    var PCTGauge = JobGauges.Get<PCTGauge>();
+                    if (PCTGauge.MooglePortraitReady || PCTGauge.MadeenPortraitReady)
+                        return iconHook.Original(self, PCT.MogOfTheAges);
+                    return iconHook.Original(self, actionID);
+                }
+            }
+
+            bool useSceneicMuseCombo = Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoSceneicMuse);
+            bool useStarPrismCombo = Configuration.ComboPresets.HasFlag(CustomComboPreset.PictoStarPrism);
+            if (useSceneicMuseCombo || useStarPrismCombo)
             {
                 if (actionID == PCT.LandscapeMotif)
                 {
                     var PCTGauge = JobGauges.Get<PCTGauge>();
-                    if (PCTGauge.LandscapeMotifDrawn)
-                        return PCT.StarryMuse;
-                    if (SearchBuffArray(PCT.StarStruck))
+                    if (useSceneicMuseCombo && PCTGauge.LandscapeMotifDrawn)
+                        return iconHook.Original(self, PCT.ScenicMuse);
+                    else if (useStarPrismCombo && SearchBuffArray(PCT.StarStruck))
                         return PCT.StarPrism;
-                    return PCT.StarryMotif;
+                    return iconHook.Original(self, actionID);
                 }
             }
-            
+
             //VIPER
             if (Configuration.ComboPresets.HasFlag(CustomComboPreset.ViperDeathRattleMaximum))
             {
